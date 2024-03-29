@@ -27,7 +27,7 @@ body, html {
 
 @media (max-width: 768px) {
     .timer h1 {
-        font-size: 5em; /* Smaller font size for the timer on mobile devices */
+        font-size: 3em; /* Smaller font size for the timer on mobile devices */
     }
 
     .timer h2 {
@@ -38,7 +38,7 @@ body, html {
 
 @media (max-width: 480px), (orientation: portrait) {
     .timer h1 {
-        font-size: 3em; /* Even smaller font size for the timer on very small devices */
+        font-size: 2em; /* Even smaller font size for the timer on very small devices */
     }
 
     .timer h2 {
