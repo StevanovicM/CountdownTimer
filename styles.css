@@ -14,35 +14,35 @@ body, html {
 }
 
 .timer h1 {
-    font-size: 4em; /* Large font size for the timer */
+    font-size: 1.5em; /* Large font size for the timer */
     margin: 0;
     padding: 0;
 }
 
 .timer h2 {
-    font-size: 2em; /* Appropriate font size for the header */
+    font-size: 1em; /* Appropriate font size for the header */
     margin: 0;
     padding-bottom: 20px; /* Space between the header and the timer */
 }
 
 @media (max-width: 768px) {
     .timer h1 {
-        font-size: 3em; /* Smaller font size for the timer on mobile devices */
+        font-size: 0.5em; /* Smaller font size for the timer on mobile devices */
     }
 
     .timer h2 {
-        font-size: 1.5em; /* Smaller font size for the header on mobile devices */
+        font-size: 0.5em; /* Smaller font size for the header on mobile devices */
         padding-bottom: 10px;
     }
 }
 
 @media (max-width: 480px), (orientation: portrait) {
     .timer h1 {
-        font-size: 2em; /* Even smaller font size for the timer on very small devices */
+        font-size: 0.25em; /* Even smaller font size for the timer on very small devices */
     }
 
     .timer h2 {
-        font-size: 1em; /* Adjust header font size for very small screens */
+        font-size: 0.25em; /* Adjust header font size for very small screens */
         padding-bottom: 5px;
     }
 }
