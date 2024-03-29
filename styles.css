@@ -14,7 +14,7 @@ body, html {
 }
 
 .timer h1 {
-    font-size: 10em; /* Large font size for the timer */
+    font-size: 4em; /* Large font size for the timer */
     margin: 0;
     padding: 0;
 }
