@@ -1,21 +1,29 @@
-function getNextFriday6PM() {
+function getNextTarget() {
     const now = new Date();
-    const nextFriday = new Date(now);
-    nextFriday.setDate(now.getDate() + (5 + 7 - now.getDay()) % 7); // Find next Friday
-    nextFriday.setHours(18, 0, 0, 0); // Set to 6 PM
+    let target = new Date(now);
 
-    // If it's currently past 6 PM on Friday, set to next Friday
-    if (now > nextFriday) {
-        nextFriday.setDate(nextFriday.getDate() + 7);
+    // Set the time to the hour and minute for Monday or Thursday
+    function setTarget(dayOfWeek, hour){
+        target.setDate(now.getDate() + (dayOfWeek + 7 - now.getDay()) % 7);
+        target.setHours(hour, 0, 0, 0);
     }
 
-    return nextFriday;
+    // Check what today is and decide when is the next target day and time
+    if (now.getDay() !== 1 || (now.getDay() === 1 && now.getHours() >= 21)){
+        // If today is Monday and it's past 9PM, or it's not Monday
+        setTarget(4, 20); // Set next target to Thursday at 8 PM
+        if (now > target) {
+            target.setDate(target.getDate() + 7); // Next Thursday
+        }
+    } else {
+        setTarget(1, 21); // Next target to Monday at 9 PM
+    }
 }
 
 // Update the countdown every 1 second
 const x = setInterval(function() {
     const now = new Date().getTime();
-    const countDownDate = getNextFriday6PM().getTime();
+    const countDownDate = getNextTarget().getTime();
     const distance = countDownDate - now;
 
     // Time calculations for days, hours, minutes, and seconds
