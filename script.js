@@ -3,14 +3,14 @@ function getNextTarget() {
     let target = new Date(now);
 
     // Set the time to the hour and minute for Monday or Thursday
-    function setTarget(dayOfWeek, hour){
+    function setTarget(dayOfWeek, hour) {
         target.setDate(now.getDate() + (dayOfWeek + 7 - now.getDay()) % 7);
         target.setHours(hour, 0, 0, 0);
     }
 
     // Check what today is and decide when is the next target day and time
-    if (now.getDay() !== 1 || (now.getDay() === 1 && now.getHours() >= 21)){
-        // If today is Monday and it's past 9PM, or it's not Monday
+    if (now.getDay() !== 1 || (now.getDay() === 1 && now.getHours() >= 21)) {
+        // If today is Monday and it's past 9 PM, or it's not Monday
         setTarget(4, 20); // Set next target to Thursday at 8 PM
         if (now > target) {
             target.setDate(target.getDate() + 7); // Next Thursday
@@ -18,6 +18,8 @@ function getNextTarget() {
     } else {
         setTarget(1, 21); // Next target to Monday at 9 PM
     }
+
+    return target;
 }
 
 // Update the countdown every 1 second
@@ -36,7 +38,7 @@ const x = setInterval(function() {
     document.getElementById("countdown").innerHTML = days + "d " + hours + "h " +
     minutes + "m " + seconds + "s ";
 
-    // If the countdown is finished, reset to next Friday
+    // If the countdown is finished, reset to next target
     if (distance < 0) {
         clearInterval(x);
         setTimeout(function() {
